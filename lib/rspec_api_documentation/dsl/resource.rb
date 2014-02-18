@@ -34,7 +34,7 @@ module RspecApiDocumentation::DSL
       end
 
       def parameter(name, description, options = {})
-        parameters.push(options.merge(:name => name.to_s, :description => description))
+        parameters.push(RspecApiDocumentation::Parameter.new(name.to_s, description, options))
       end
 
       def header(name, value)

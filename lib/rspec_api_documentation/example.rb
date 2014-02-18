@@ -30,6 +30,12 @@ module RspecApiDocumentation
       return true if configuration.filter == :all
     end
 
+    def parameters
+      (example.metadata[:parameters] || []).map do |param|
+        param.to_hash if param.should_document?(self)
+      end.compact
+    end
+
     def public?
       metadata[:public]
     end
