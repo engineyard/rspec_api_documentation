@@ -70,7 +70,7 @@ resource "Order" do
       subject { |example| example.metadata }
 
       it "should include the documentated parameters" do
-        expect(subject[:parameters]).to eq(
+        expect(subject[:parameters].map(&:to_hash)).to eq(
           [
             { :name => "type", :description => "The type of drink you want.", :required => true },
             { :name => "size", :description => "The size of drink you want.", :required => true },
@@ -80,7 +80,7 @@ resource "Order" do
       end
 
       it "should include the documentated response fields" do
-        expect(subject[:response_fields]).to eq (
+        expect(subject[:response_fields]).to eq(
           [
             { :name => "type", :description => "The type of drink you ordered.", :scope => :order },
             { :name => "size", :description => "The size of drink you ordered.", :scope => :order },
