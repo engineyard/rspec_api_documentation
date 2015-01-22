@@ -1,9 +1,10 @@
 lib = File.expand_path("../lib/", __FILE__)
 $:.unshift lib unless $:.include?(lib)
+require 'rspec_api_documentation/version'
 
 Gem::Specification.new do |s|
   s.name        = "rspec_api_documentation"
-  s.version     = "4.3.0"
+  s.version     = RspecApiDocumentation::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Chris Cahoon", "Sam Goldman", "Eric Oestrich"]
   s.email       = ["chris@smartlogicsolutions.com", "sam@smartlogicsolutions.com", "eric@smartlogicsolutions.com"]

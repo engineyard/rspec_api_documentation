@@ -1,3 +1,5 @@
+require 'rspec_api_documentation/version'
+
 require 'active_support'
 require 'active_support/inflector'
 require 'active_support/core_ext/hash/conversions'
