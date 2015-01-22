@@ -79,6 +79,7 @@ module RspecApiDocumentation
     add_setting :request_headers_to_include, :default => nil
     add_setting :response_headers_to_include, :default => nil
     add_setting :html_embedded_css_file, :default => nil
+    add_setting :infer_parameters, :default => true
 
     # Change how the post body is formatted by default, you can still override by `raw_post`
     # Can be :json, :xml, or a proc that will be passed the params
@@ -125,7 +126,7 @@ module RspecApiDocumentation
     # Yields itself and sub groups to hook into the Enumerable module
     def each(&block)
       yield self
-      groups.map { |g| g.each &block }
+      groups.map { |g| g.each(&block) }
     end
   end
 end
